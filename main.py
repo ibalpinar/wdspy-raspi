@@ -1,38 +1,45 @@
 import io
 import json
 import os
+import sys
+
+# print(sys.path)
 
 '''
-id|pulse|ml|factor|milliliter|cl|timestamp
+pulse|ml|factor|milliliter|cl|timestamp
 '''
 
 START_UP_PARAMETERS_NO_ERROR = 0
 START_UP_PARAMETERS_ERROR = 1
-
-PATH = '/projects/wdspy-raspi/'
+PATH = '~/Projects/wdspy-raspi-data/'
 FILE_NAME = 'pourings.json'
 FULL_PATH = PATH + FILE_NAME
+EXPANDED_PATH = os.path.expanduser(PATH)
+EXPANDED_FILE_NAME_PATH = os.path.expanduser(FULL_PATH)
 
 
 def startup():
     print("Please wait while the application is starting up...")
-    if os.path.isfile(FULL_PATH) and os.access(FULL_PATH, os.R_OK):
+    from pathlib import Path
+    Path(EXPANDED_PATH).mkdir(parents=True, exist_ok=True)
+    if os.path.isfile(EXPANDED_FILE_NAME_PATH) and os.access(EXPANDED_FILE_NAME_PATH, os.R_OK):
         # checks if file exists
         print("File exists and is readable.")
     else:
         print("Either file is missing or is not readable, creating file...")
-        with io.open(os.path.join(PATH, FILE_NAME), 'w') as db_file:
+        with io.open(os.path.join(EXPANDED_PATH, FILE_NAME), 'w') as db_file:
+            # Create a file with empty json array
             db_file.write(json.dumps([]))
     return START_UP_PARAMETERS_NO_ERROR
 
 
 def write_file(pouring):
-    with open(FULL_PATH) as fp:
+    with open(EXPANDED_FILE_NAME_PATH) as fp:
         pourings = json.load(fp)
 
     pourings.append(pouring)
 
-    with open(FULL_PATH, 'w') as json_file:
+    with open(EXPANDED_FILE_NAME_PATH, 'w') as json_file:
         json.dump(pourings, json_file, indent=2, separators=(',', ': '))
 
 
