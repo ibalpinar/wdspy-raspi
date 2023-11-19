@@ -1,18 +1,18 @@
 import io
 import json
 import os
-import sys
-
-# print(sys.path)
+import pathlib
+import datetime
 
 '''
 pulse|ml|factor|milliliter|cl|timestamp
 '''
 
+current_date = datetime.date.today().strftime('%Y%m%d')
 START_UP_PARAMETERS_NO_ERROR = 0
 START_UP_PARAMETERS_ERROR = 1
 PATH = '~/Projects/wdspy-raspi-data/'
-FILE_NAME = 'pourings.json'
+FILE_NAME = 'pourings-' + current_date + '.json'
 FULL_PATH = PATH + FILE_NAME
 EXPANDED_PATH = os.path.expanduser(PATH)
 EXPANDED_FILE_NAME_PATH = os.path.expanduser(FULL_PATH)
@@ -20,8 +20,7 @@ EXPANDED_FILE_NAME_PATH = os.path.expanduser(FULL_PATH)
 
 def startup():
     print("Please wait while the application is starting up...")
-    from pathlib import Path
-    Path(EXPANDED_PATH).mkdir(parents=True, exist_ok=True)
+    pathlib.Path(EXPANDED_PATH).mkdir(parents=True, exist_ok=True)
     if os.path.isfile(EXPANDED_FILE_NAME_PATH) and os.access(EXPANDED_FILE_NAME_PATH, os.R_OK):
         # checks if file exists
         print("File exists and is readable.")
