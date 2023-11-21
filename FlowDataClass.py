@@ -3,12 +3,13 @@ import json
 
 class FlowData:
 
-    def __init__(self, pulse, factor, milliliter, cl, timestamp):
+    def __init__(self, pulse, factor, milliliter, cl, timestamp, datetime):
         self.__pulse = pulse
         self.__factor = factor
         self.__milliliter = milliliter
         self.__cl = cl
         self.__timestamp = timestamp
+        self.__datetime = datetime
 
     @property
     def milliliter(self):
@@ -50,3 +51,10 @@ class FlowData:
     def timestamp(self, value):
         self.__timestamp = value
 
+    @property
+    def datetime(self):
+        return self.__datetime
+
+    @datetime.setter
+    def datetime(self, value):
+        self.__datetime = value

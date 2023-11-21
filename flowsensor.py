@@ -1,3 +1,4 @@
+"""
 import RPi.GPIO as GPIO
 import parameters
 
@@ -14,3 +15,4 @@ def countPulse(channel)
 
 
 GPIO.add_event_detect(FLOW_SENSOR, GPIO.FALLING, callback=countPulse)
+"""

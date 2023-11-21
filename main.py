@@ -1,12 +1,12 @@
-import parameters
-import os
+import calendar
 import io
 import json
+import os
 import pathlib
+import time
 
-'''
-pulse|ml|factor|milliliter|cl|timestamp
-'''
+import FlowDataClass
+import parameters
 
 
 def startup():
@@ -23,18 +23,24 @@ def startup():
     return parameters.START_UP_PARAMETERS_NO_ERROR
 
 
-def write_file(pouring):
+def write_flow_data_to_disc(flow_data):
     with open(parameters.EXPANDED_FILE_NAME_PATH) as fp:
         pourings = json.load(fp)
 
-    pourings.append(pouring)
+    pourings.append(json.loads(flow_data))
 
     with open(parameters.EXPANDED_FILE_NAME_PATH, 'w') as json_file:
         json.dump(pourings, json_file, indent=2, separators=(',', ': '))
 
 
 if startup() == parameters.START_UP_PARAMETERS_NO_ERROR:
-    pouring = {"a": 54, "b": 87}
-    write_file(pouring)
+    timestamp = calendar.timegm(time.gmtime())
+    current_datetime = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(timestamp))
+
+    flow_data_class = FlowDataClass.FlowData(453, 5, 550, 5, timestamp, current_datetime)
+    flow_data_str = json.dumps(flow_data_class.__dict__).replace("\\", "")
+
+    write_flow_data_to_disc(flow_data_str)
+
 else:
     print('Something went wrong...')
