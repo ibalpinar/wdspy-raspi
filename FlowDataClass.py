@@ -3,13 +3,22 @@ import json
 
 class FlowData:
 
-    def __init__(self, pulse, factor, milliliter, cl, timestamp, datetime):
+    def __init__(self, device_id, pulse, factor, milliliter, cl, timestamp, datetime):
+        self.__device_id = device_id
         self.__pulse = pulse
         self.__factor = factor
         self.__milliliter = milliliter
         self.__cl = cl
         self.__timestamp = timestamp
         self.__datetime = datetime
+
+    @property
+    def device_id(self):
+        return self.__device_id
+
+    @device_id.setter
+    def device_id(self, value):
+        self.__device_id = value
 
     @property
     def milliliter(self):
