@@ -28,7 +28,7 @@ if startup() == parameters.START_UP_PARAMETERS_NO_ERROR:
     timestamp = calendar.timegm(time.gmtime())
     current_datetime = time.strftime(parameters.current_datetime_format, time.gmtime(timestamp))
 
-    flow_data_class = FlowDataClass.FlowData('RBPI000000001', 453, 5, 550, 5, timestamp, current_datetime)
+    flow_data_class = FlowDataClass.FlowData(utils.get_serial_number(), 453, 5, 550, 5, timestamp, current_datetime)
     flow_data_str = json.dumps(flow_data_class.__dict__).replace("\\", "")
 
     utils.write_flow_data_to_disc(flow_data_str)
