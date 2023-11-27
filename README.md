@@ -27,11 +27,11 @@ You can easily realize this project at home. The things you need to do are not v
 
 The requirements are as follows:
 
-1. Raspberry Pi
-2. Water Flow Sensor, model number YF-S201
-3. Water dispenser and Faucet (Sensor will be between these two stuff)
-4. Download all the repositories required by the project and complete the Installation steps (This part is still incomplete, it is being completed gradually)
-5. Lots of patience and passion
+ 1. Raspberry Pi
+ 2. Water Flow Sensor, model number YF-S201
+ 3. Water dispenser and Faucet (Sensor will be between these two stuff)
+ 4. Download all the repositories required by the project and complete the Installation steps (This part is still incomplete, it is being completed gradually)
+ 5. Lots of patience and passion
 
 ## Important note:
 ### This project is open source, so if you are currently reading this issue, and you believe you are competent, this is a great topic to contribute to!
