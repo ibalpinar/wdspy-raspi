@@ -33,5 +33,58 @@ The requirements are as follows:
  4. Download all the repositories required by the project and complete the Installation steps (This part is still incomplete, it is being completed gradually)
  5. Lots of patience and passion
 
+## Raspberry Pi Pinout table
+
+Output from the PIs ```pinout``` command
+
+```
+   3V3  (1) o o (2)  5V
+ GPIO2  (3) o o (4)  5V
+ GPIO3  (5) o o (6)  GND
+ GPIO4  (7) o o (8)  GPIO14
+   GND  (9) o o (10) GPIO15
+GPIO17 (11) o o (12) GPIO18
+GPIO27 (13) o o (14) GND
+GPIO22 (15) o o (16) GPIO23
+   3V3 (17) o o (18) GPIO24
+GPIO10 (19) o o (20) GND
+ GPIO9 (21) o o (22) GPIO25
+GPIO11 (23) o o (24) GPIO8
+   GND (25) o o (26) GPIO7
+ GPIO0 (27) o o (28) GPIO1
+ GPIO5 (29) o o (30) GND
+ GPIO6 (31) o o (32) GPIO12
+GPIO13 (33) o o (34) GND
+GPIO19 (35) o o (36) GPIO16
+GPIO26 (37) o o (38) GPIO20
+   GND (39) o o (40) GPIO21
+```
+
+## Raspberry Pi and YF-S201 Water Flow Sensor Connection
+
+| Pin | Value  | Connected      | Connected     | Value  | Pin | 
+|-----|--------|----------------|---------------|--------|-----|
+| 1   | 3V3    | Sensor Power   | -             | 5V     | 2   |
+| 3   | GPIO2  | -              | -             | 5V     | 4   |
+| 5   | GPIO3  | -              | Sensor Ground | GND    | 6   |
+| 7   | GPIO4  | -              | -             | GPIO14 | 8   |
+| 9   | GND    | -              | -             | GPIO15 | 10  |
+| 11  | GPIO17 | -              | -             | GPIO18 | 12  |
+| 13  | GPIO27 | -              | -             | GND    | 14  |
+| 15  | GPIO22 | -              | -             | GPIO23 | 16  |
+| 17  | 3V3    | -              | -             | GPIO24 | 18  |
+| 19  | GPIO10 | -              | -             | GND    | 20  |
+| 21  | GPIO9  | -              | -             | GPIO25 | 22  |
+| 23  | GPIO11 | -              | -             | GPIO8  | 24  |
+| 25  | GND    | -              | -             | GPIO7  | 26  |
+| 27  | GPIO0  | -              | -             | GPIO1  | 28  |
+| 29  | GPIO5  | -              | -             | GND    | 30  |
+| 31  | GPIO6  | -              | -             | GPIO12 | 32  |
+| 33  | GPIO19 | Sensor Signal  | -             | GND    | 34  |
+| 35  | GPIO19 | -              | -             | GPIO16 | 36  |
+| 37  | GPIO26 | -              | -             | GPIO20 | 38  |
+| 39  | GND    | -              | -             | GPIO21 | 40  |
+
+
 ## Important note:
 ### This project is open source, so if you are currently reading this issue, and you believe you are competent, this is a great topic to contribute to!
