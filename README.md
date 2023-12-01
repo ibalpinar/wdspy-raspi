@@ -86,5 +86,10 @@ GPIO26 (37) o o (38) GPIO20
 | 39  | GND    | -              | -             | GPIO21 | 40  |
 
 
+## License
+Distributed under the GNU GPL. See [LICENSE](LICENSE) for more information.
+
 ## Important note:
-### This project is open source, so if you are currently reading this issue, and you believe you are competent, this is a great topic to contribute to!
+This project is open source, so if you are currently reading this lines, and you believe you are competent, this is a great project to contribute to!
+
+Free Software, just for fun ;)
